@@ -5,11 +5,12 @@ import intro3 from '../assets/intro3.png'
 import intro4 from '../assets/intro4.png'
 import { useState } from 'react'
 
-import apiV1Instance from '../api/api-instance'
 import { useNavigate } from 'react-router-dom'
+import apiV1Instance from '../api/api-instance'
 
 export default function Page() {
   const [concept, setConcept] = useState('')
+
   const navigate = useNavigate()
   const data = {
     topic: concept,
@@ -24,7 +25,10 @@ export default function Page() {
         `/generate_concepts?topic=${data.topic}`
       )
       console.log(response.data)
-      navigate('/topic', { state: { conceptData: response.data } })
+      console.log(response.data.designs)
+      const temp = response.data.designs
+      navigate('/topic',{state:{temp}})
+
     } catch (error) {
       // 에러 뜰 때
       alert(error) // 경고창

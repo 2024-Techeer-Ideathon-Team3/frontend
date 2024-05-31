@@ -1,19 +1,26 @@
 import NavBar from '../components/NavBar'
-import image from '../assets/logo.png'
-import own from '../assets/own.png'
-import cy from '../assets/cy.png'
-function FinalSelectPage() {
+
+
+import { useLocation } from 'react-router-dom'
+
+
+export default function FinalSelectPage() {
+  
+  const {state : {
+    url
+  }} = useLocation()
+  
   return (
     <>
       <NavBar></NavBar>
       <div className="fixed">
         <div className="absolute inset-0 flex items-center justify-center mb-[17vh]">
           <div>
-            <img src={own} className="w-[30vw]"></img>
-            <img src={cy} className="w-[50vw]"></img>
+            {/* <img src={own} className="w-[30vw]"></img>
+            <img src={cy} className="w-[50vw]"></img> */}
           </div>
           <div className="w-[30rem] items-center justify-center ">
-            <img src={image} className="w-[50rem]"></img>
+            <img src={url} className="w-[50rem]"></img>
             {/* 이미지 추가 */}
             <div className="flex items-center justify-center ">
               <button className="px-3 py-2 m-4 text-2xl text-white bg-black rounded-lg">
@@ -50,4 +57,3 @@ function FinalSelectPage() {
     </>
   )
 }
-export default FinalSelectPage

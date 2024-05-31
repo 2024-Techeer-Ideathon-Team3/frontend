@@ -4,19 +4,17 @@ import NavBar from '../components/NavBar'
 import { useLocation } from 'react-router-dom'
 
 function SelectTopic() {
-  const location = useLocation()
-  const { conceptData } = location.state || {}
-  console.log('conceptData:', conceptData)
 
+  const {state :{temp}} = useLocation()
   return (
     <div>
       <NavBar />
       <div className="fixed">
         <div className="absolute inset-0 flex items-center justify-center mt-[10rem]">
-          <Topic data={conceptData.element[0]}></Topic>
-          <Topic data={conceptData.element[1]}></Topic>
-          <Topic data={conceptData.element[2]}></Topic>
-          <Topic data={conceptData.element[3]}></Topic>
+
+          {temp.map((test, index) => (
+            <Topic key={index} test={test}/>
+          ))}
         </div>
 
         <div className="flex items-center justify-center">

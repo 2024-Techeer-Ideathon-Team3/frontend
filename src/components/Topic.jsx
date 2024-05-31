@@ -3,41 +3,41 @@
 import apiV1Instance from '../api/api-instance'
 import { useNavigate } from 'react-router-dom'
 
-function Topic({ data }) {
-  const [color, setColor] = useState('')
-  const handleColorChange = (event) => {
-    setColor(event.target.value)
-  }
+
+
+function Topic({test}) {
   const navigate = useNavigate()
-  const data2 = {
-    explanation: string,
-    elements: [],
-    colorCode: string,
-  }
-  console.log(data)
-  const handleClick = async () => {
+
+  const handleLogo = async (test) => {
+  
+    const sendData = {
+      elements : test.elements,
+      explanation : test.explanation,
+      colorCode : '파랑색'
+    }
+    console.log('click')
     try {
-      console.log(data2)
-      const response = await apiV1Instance.post('/generate_logos', data2)
-      console.log(response.data2)
-      navigate('/final')
-    } catch (error) {
-      // 에러 뜰 때
-      alert(error) // 경고창
+      const response = await apiV1Instance.post('/generate_logos',
+        sendData
+      )
+      
+      const url = response.data
+      console.log('Topic Success Url: ',url);
+      navigate('/final',{ state : {url}})
+    }
+    catch (e){
+      console.error(e)
     }
   }
+
   return (
-    <div
-      onClick={handleClick}
-      className="border-dashed border border-gray-400 w-[20vw] h-[30vh] mx-[2rem] bg-white"
+    <div className="border-dashed border cursor-pointer border-gray-400 w-[20vw] h-[30vh] mx-[2rem] bg-white"
+    onClick={() => handleLogo(test)}
     >
-      주제 : {data}
-      <input
-        type="text"
-        className="w-32 h-10 border border-black"
-        placeholder="  ex)노란색"
-        onChange={handleColorChange}
-      ></input>
+      {test.elements.map((element, index) => (
+        <div key={index}>{element}</div>
+      ))}
+      
     </div>
   )
 }
