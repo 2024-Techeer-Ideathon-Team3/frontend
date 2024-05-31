@@ -8,3 +8,8 @@ services:
       - "3000:3000"
     command: npm run dev
     restart: always
+    networks:
+      - home_network
+networks:
+  home_network:
+    external: true
