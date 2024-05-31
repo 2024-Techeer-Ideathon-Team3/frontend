@@ -15,7 +15,7 @@ function Topic({ data }) {
     try {
       console.log(data2)
       const response = await apiV1Instance.post('/generate_logos', data2)
-      console.log(response.data)
+      console.log(response.data2)
       navigate('/final')
     } catch (error) {
       // 에러 뜰 때
