@@ -2,6 +2,8 @@ import { createBrowserRouter } from 'react-router-dom'
 import MainPage from '../pages/MainPage'
 import SelectTopic from '../pages/SelectTopic'
 import FinalSelectPage from '../pages/FinalSelectPage'
+import SelectColorPage from '../pages/SelectColorPage'
+
 const routers = createBrowserRouter([
   {
     path: '/',
@@ -15,5 +17,6 @@ const routers = createBrowserRouter([
     path: '/final',
     element: <FinalSelectPage />,
   },
+  { path: '/color', element: <SelectColorPage /> },
 ])
 export default routers
