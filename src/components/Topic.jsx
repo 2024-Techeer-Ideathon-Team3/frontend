@@ -10,9 +10,10 @@ function Topic({ data }) {
     elements: [],
     colorCode: string,
   }
+  console.log(data)
   const handleClick = async () => {
     try {
-      console.log(data)
+      console.log(data2)
       const response = await apiV1Instance.post('/generate_logos', data2)
       console.log(response.data)
       navigate('/final')
