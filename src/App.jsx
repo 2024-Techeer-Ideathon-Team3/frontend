@@ -1,3 +1,9 @@
+import { RouterProvider } from 'react-router-dom'
+import routers from './utils/router'
 export default function App() {
-  return <div className="text-3xl">Hihi</div>
+  return (
+    <div className="h-full">
+      <RouterProvider router={routers} />
+    </div>
+  )
 }
