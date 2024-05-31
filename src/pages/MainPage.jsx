@@ -3,10 +3,30 @@ import intro1 from '../assets/intro1.png'
 import intro2 from '../assets/intro2.png'
 import intro3 from '../assets/intro3.png'
 import intro4 from '../assets/intro4.png'
-// import { useState } from 'react'
+import { useState } from 'react'
 
-export default function page() {
-  // const [concept, setConcept] = useState('')
+import apiV1Instance from '../api/api-instance'
+import { useNavigate } from 'react-router-dom'
+
+export default function Page() {
+  const [concept, setConcept] = useState('')
+  const navigate = useNavigate()
+  const data = {
+    topic: concept,
+  }
+  const handleConceptChange = (event) => {
+    setConcept(event.target.value)
+  }
+  const handleSubmit = async () => {
+    try {
+      const response = await apiV1Instance.post('generate_concepts', data)
+      console.log(response.data)
+      navigate('/topic')
+    } catch (error) {
+      // 에러 뜰 때
+      alert(error) // 경고창
+    }
+  }
   return (
     <div>
       <NavBar />
@@ -27,9 +47,12 @@ export default function page() {
           className="h-12 border border-black w-80"
           placeholder="  concept"
           // value={id}
-          // onChange={handleIdChange}
+          onChange={handleConceptChange}
         ></input>
-        <button className="w-20 h-12 text-white bg-gray-700 rounded-md hover:bg-black">
+        <button
+          onClick={handleSubmit}
+          className="w-20 h-12 text-white bg-gray-700 rounded-md hover:bg-black"
+        >
           START
         </button>
       </div>
