@@ -1,18 +1,28 @@
-// import React from 'react'
 import NavBar from '../components/NavBar'
 import image from '../assets/logo.png'
+import own from '../assets/own.png'
+import cy from '../assets/cy.png'
 function FinalSelectPage() {
   return (
     <>
       <NavBar></NavBar>
       <div className="fixed">
-        {/* 토픽 로직 추가 */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div>own Create Your Logo is</div>
+        <div className="absolute inset-0 flex items-center justify-center mb-[17vh]">
           <div>
-            <img src={image}></img>
-            <button className="color-black">download</button>
-            <button>retry</button>
+            <img src={own} className="w-[30vw]"></img>
+            <img src={cy} className="w-[50vw]"></img>
+          </div>
+          <div className="w-[30rem] items-center justify-center ">
+            <img src={image} className="w-[50rem]"></img>
+            {/* 이미지 추가 */}
+            <div className="flex items-center justify-center ">
+              <button className="px-3 py-2 m-4 text-2xl text-white bg-black rounded-lg">
+                download
+              </button>
+              <button className="px-3 py-2 m-4 text-2xl text-white bg-black rounded-lg">
+                retry
+              </button>
+            </div>
           </div>
         </div>
         <div className="flex items-center justify-center">

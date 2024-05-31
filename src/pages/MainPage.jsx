@@ -20,9 +20,11 @@ export default function Page() {
   const handleSubmit = async () => {
     try {
       console.log(data)
-      const response = await apiV1Instance.post(`/generate_concepts?topic=${data.topic}`)
+      const response = await apiV1Instance.post(
+        `/generate_concepts?topic=${data.topic}`
+      )
       console.log(response.data)
-      navigate('/topic')
+      navigate('/topic', { state: { conceptData: response.data } })
     } catch (error) {
       // 에러 뜰 때
       alert(error) // 경고창
@@ -47,7 +49,6 @@ export default function Page() {
           type="text"
           className="h-12 border border-black w-80"
           placeholder="  concept"
-          // value={id}
           onChange={handleConceptChange}
         ></input>
         <button
