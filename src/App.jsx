@@ -1,9 +1,3 @@
-import { useState } from 'react'
-import './App.css'
-import { BrowserRouter } from 'react-router-dom'
-
-function App() {
-  return <></>
+export default function App() {
+  return <div className="text-3xl">Hihi</div>
 }
-
-export default App
