@@ -31,11 +31,12 @@ function Topic({test}) {
   }
 
   return (
-    <div className="border-dashed border cursor-pointer border-gray-400 w-[20vw] h-[30vh] mx-[2rem] bg-white"
+    <div className="border-dashed flex flex-col items-center gap-4 justify-center border cursor-pointer border-gray-400 w-[20vw] h-[30vh] mx-[2rem] bg-white"
     onClick={() => handleLogo(test)}
     >
       {test.elements.map((element, index) => (
-        <div key={index}>{element}</div>
+        <div key={index}
+        className='flex flex-col items-center justify-center font-bold'>{element}</div>
       ))}
       
     </div>
