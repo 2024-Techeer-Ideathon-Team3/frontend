@@ -4,7 +4,7 @@ axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 const apiV1Instance = axios.create({
-  baseURL: '/api/v1',
+  baseURL: 'http://localhost:8001/api/v1',
   headers: {
     'Content-Type': 'application/json',
   },

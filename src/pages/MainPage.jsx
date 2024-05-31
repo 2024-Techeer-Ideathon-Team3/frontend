@@ -19,7 +19,8 @@ export default function Page() {
   }
   const handleSubmit = async () => {
     try {
-      const response = await apiV1Instance.post('generate_concepts', data)
+      console.log(data)
+      const response = await apiV1Instance.post(`/generate_concepts?topic=${data.topic}`)
       console.log(response.data)
       navigate('/topic')
     } catch (error) {
