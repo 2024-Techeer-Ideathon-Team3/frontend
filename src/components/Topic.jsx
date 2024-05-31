@@ -4,6 +4,10 @@ import apiV1Instance from '../api/api-instance'
 import { useNavigate } from 'react-router-dom'
 
 function Topic({ data }) {
+  const [color, setColor] = useState('')
+  const handleColorChange = (event) => {
+    setColor(event.target.value)
+  }
   const navigate = useNavigate()
   const data2 = {
     explanation: string,
@@ -27,7 +31,13 @@ function Topic({ data }) {
       onClick={handleClick}
       className="border-dashed border border-gray-400 w-[20vw] h-[30vh] mx-[2rem] bg-white"
     >
-      {data}
+      주제 : {data}
+      <input
+        type="text"
+        className="w-32 h-10 border border-black"
+        placeholder="  ex)노란색"
+        onChange={handleColorChange}
+      ></input>
     </div>
   )
 }
